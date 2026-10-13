@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Match</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <main class="app">
+      <header class="top">
+        <div class="brand">
+          <span class="mark" aria-hidden="true"></span>
+          <h1>Word Match</h1>
+        </div>
+        <p class="tagline">Drag each word onto its definition.</p>
+      </header>
+
+      <section class="hud" aria-live="polite">
+        <div class="stat">
+          <span class="label">Round</span>
+          <strong id="round">1 / 1</strong>
+        </div>
+        <div class="stat">
+          <span class="label">Matched</span>
+          <strong id="matched">0 / 5</strong>
+        </div>
+        <div class="stat">
+          <span class="label">Accuracy</span>
+          <strong id="accuracy">100%</strong>
+        </div>
+      </section>
+
+      <div class="board">
+        <section class="column" aria-label="Words">
+          <h2>Words</h2>
+          <div id="words" class="word-list"></div>
+        </section>
+        <section class="column" aria-label="Definitions">
+          <h2>Definitions</h2>
+          <div id="defs" class="def-list"></div>
+        </section>
+      </div>
+
+      <p id="feedback" class="feedback" role="status" aria-live="assertive"></p>
+
+      <div class="actions">
+        <button type="button" id="shuffle" class="ghost">Shuffle</button>
+        <button type="button" id="restart" class="ghost">Restart round</button>
+      </div>
+    </main>
+
+    <div id="win" class="overlay hidden" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="win-title">
+      <div class="panel">
+        <p class="eyebrow" id="win-eyebrow">Round complete</p>
+        <h2 id="win-title">Every pair is matched.</h2>
+        <p id="win-copy" class="win-copy"></p>
+        <div class="panel-actions">
+          <button type="button" id="next" class="primary">Next round</button>
+          <button type="button" id="again" class="ghost">Play again</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
